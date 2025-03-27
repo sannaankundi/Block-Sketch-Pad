@@ -74,15 +74,6 @@ function undoLast() {
   }
 }
 
-function saveAsImage() {
-  html2canvas(container).then((canvas) => {
-    const link = document.createElement("a");
-    link.download = "block-sketch.png";
-    link.href = canvas.toDataURL();
-    link.click();
-  });
-}
-
 resetBtn.addEventListener("click", () => {
   let size = prompt("Enter number of squares per side (max 100):");
   size = parseInt(size);
@@ -99,8 +90,6 @@ eraserBtn.addEventListener("click", () => {
 });
 
 undoBtn.addEventListener("click", undoLast);
-
-saveBtn.addEventListener("click", saveAsImage);
 
 randomBtn.addEventListener("click", () => {
   randomMode = !randomMode;
